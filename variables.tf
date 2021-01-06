@@ -1,6 +1,6 @@
 variable "project_name" {
   description = "Project Name that will be used as prefix for all the resources deployed"
-  default     = "chkp-bchong-"
+  default     = "chkp-bchong"
 }
 
 provider "aws" {
