@@ -23,7 +23,7 @@ resource "aws_subnet" "cg_web_sub" {
 resource "aws_subnet" "cg_mgmt_a_sub" {
   vpc_id        = aws_vpc.cg_vpc.id
   cidr_block    = cidrsubnet(var.northbound_cidr_vpc, 8, 1)
-  availability_zone = "ap-southeast-1a"
+  availability_zone = "${var.region}a"
   tags          = {
     Name = "${var.project_name}_mgmt_sub_1"
   }

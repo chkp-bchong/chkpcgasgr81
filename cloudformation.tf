@@ -17,7 +17,7 @@ resource "aws_cloudformation_stack" "chkp_mgmt_cft_stack" {
     ManagementBootstrapScript = <<BOOTSTRAP
 echo 'mgmt_cli -r true set access-rule layer Network rule-number 1 action "Accept" track "Log"' > /etc/cloudsetup.sh;
 echo 'cloudguard on' >> /etc/cloudsetup.sh;
-echo 'autoprov-cfg -f init AWS -mn "${var.managementserver_name}" -tn "${var.configurationtemplate_name}" -otp "${var.sic_key}" -ver "${var.cpversion}" -po "Standard" -cn "AWScontroller" -r "ap-southeast-1" -iam' >> /etc/cloudsetup.sh;
+echo 'autoprov-cfg -f init AWS -mn "${var.managementserver_name}" -tn "${var.configurationtemplate_name}" -otp "${var.sic_key}" -ver "${var.cpversion}" -po "Standard" -cn "AWScontroller" -r "${var.region}" -iam' >> /etc/cloudsetup.sh;
 echo 'autoprov-cfg -f set template -tn "${var.configurationtemplate_name}" -pp "${var.proxy_port}"' >> /etc/cloudsetup.sh;
 echo 'autoprov-cfg -f set template -tn "${var.configurationtemplate_name}" -ia -ips -appi -av -ab' >> /etc/cloudsetup.sh;
 chmod +x /etc/cloudsetup.sh;
